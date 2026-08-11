@@ -4,20 +4,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+    {% for stylesheet in page.extra_styles %}
+      <link rel="stylesheet" href="{{ stylesheet | relative_url }}">
+    {% endfor %}
     {% seo %}
   </head>
   <body>
+    {% if page.lang == 'zh' %}
+      {% assign language_label = 'English' %}
+      {% assign language_url = '/' %}
+    {% else %}
+      {% assign language_label = '中文' %}
+      {% assign language_url = '/zh/' %}
+    {% endif %}
+    {% if page.translation_key %}
+      {% assign translations = site.posts | where: 'translation_key', page.translation_key %}
+      {% for translation in translations %}
+        {% if translation.lang != page.lang %}
+          {% assign language_url = translation.url %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
     <header class="site-header">
       <div class="shell nav-wrap">
         <a class="brand" href="{{ '/' | relative_url }}">Mitchell<span>’s</span> Notes</a>
         <nav aria-label="Primary navigation">
-          <a href="{{ '/' | relative_url }}"{% if page.lang != 'zh' %} aria-current="page"{% endif %}>English</a>
-          <a href="{{ '/zh/' | relative_url }}"{% if page.lang == 'zh' %} aria-current="page"{% endif %}>中文</a>
-          {% if page.lang == 'zh' %}
-            <a href="{{ '/zh/about/' | relative_url }}">关于</a>
-          {% else %}
-            <a href="{{ '/about/' | relative_url }}">About</a>
-          {% endif %}
+          <a class="language-switch" href="{{ language_url | relative_url }}">{{ language_label }}</a>
         </nav>
       </div>
     </header>

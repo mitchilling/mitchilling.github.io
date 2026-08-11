@@ -5,12 +5,6 @@ layout: default
   <header class="article-header">
     <p class="post-date">{{ page.date | date: '%Y.%m.%d' }}</p>
     <h1>{{ page.title }}</h1>
-    {% assign translations = site.posts | where: 'translation_key', page.translation_key %}
-    {% for translation in translations %}
-      {% if translation.lang != page.lang %}
-        <a class="translation-link" href="{{ translation.url | relative_url }}">{% if page.lang == 'zh' %}Read in English{% else %}阅读中文版{% endif %} <span aria-hidden="true">→</span></a>
-      {% endif %}
-    {% endfor %}
   </header>
   <div class="article-content">
     {{ content }}
