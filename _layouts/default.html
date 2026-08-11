@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+    {% seo %}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell nav-wrap">
+        <a class="brand" href="{{ '/' | relative_url }}">Mitchell<span>’s</span> Notes</a>
+        <nav aria-label="Primary navigation">
+          <a href="{{ '/' | relative_url }}"{% if page.lang != 'zh' %} aria-current="page"{% endif %}>English</a>
+          <a href="{{ '/zh/' | relative_url }}"{% if page.lang == 'zh' %} aria-current="page"{% endif %}>中文</a>
+          {% if page.lang == 'zh' %}
+            <a href="{{ '/zh/about/' | relative_url }}">关于</a>
+          {% else %}
+            <a href="{{ '/about/' | relative_url }}">About</a>
+          {% endif %}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <p>© {{ site.time | date: '%Y' }} Mitchell. Made slowly, on the open web.</p>
+      </div>
+    </footer>
+  </body>
+</html>

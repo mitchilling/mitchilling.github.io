@@ -1,0 +1,9 @@
+title: Mitchell's Blog
+description: Notes on software, tools, and the things I am learning.
+url: "https://mitchilling.github.io"
+baseurl: ""
+
+permalink: /posts/:title/
+
+plugins:
+  - jekyll-feed

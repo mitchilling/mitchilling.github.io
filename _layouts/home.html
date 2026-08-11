@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<section class="hero shell">
+  <p class="eyebrow">{{ page.eyebrow }}</p>
+  <h1>{{ page.hero_title | default: page.title }}</h1>
+  <p class="lede">{{ page.hero_intro | default: page.intro }}</p>
+</section>
+
+<section class="post-list shell" aria-label="Posts">
+  <div class="section-heading">
+    <p class="eyebrow">{% if page.lang == 'zh' %}最新文章{% else %}Latest writing{% endif %}</p>
+  </div>
+  {% assign posts = site.posts | where: 'lang', page.lang %}
+  {% for post in posts %}
+    <article class="post-card">
+      <p class="post-date">{{ post.date | date: '%Y.%m.%d' }}</p>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p>{{ post.excerpt | strip_html | normalize_whitespace | truncate: 170 }}</p>
+      <a class="read-more" href="{{ post.url | relative_url }}">{% if page.lang == 'zh' %}阅读全文 <span aria-hidden="true">→</span>{% else %}Read article <span aria-hidden="true">→</span>{% endif %}</a>
+    </article>
+  {% else %}
+    <p>{% if page.lang == 'zh' %}文章即将发布。{% else %}Writing is on its way.{% endif %}</p>
+  {% endfor %}
+</section>
