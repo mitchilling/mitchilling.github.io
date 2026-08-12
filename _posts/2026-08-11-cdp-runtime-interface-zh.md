@@ -101,7 +101,7 @@ Computer Use 已经很流行，也切实可行；我自己在开发中也使用�
 - [Lynx DevTool skill](https://lynxjs.org/ai/skills/lynx-devtool) 和 [Lynx DevTool MCP](https://lynxjs.org/zh/ai/lynx-devtool-mcp) 让 Agent 能够观测和控制 Lynx 页面。
 - [DebugRouter](https://github.com/lynx-family/debug-router) 负责建立连接，并将 CDP 消息桥接到运行时。
 
-仍在完善中的 [Lynx CDP API Reference](https://lynxjs.org/zh/api/cdp/api-ref) 展示了当前提供的能力：
+仍在完善中的 [Lynx CDP API Reference](https://lynxjs.org/next/zh/api/cdp/api-ref.html) 展示了当前提供的能力：
 
 <div class="capability-table" role="region" aria-label="当前 Lynx CDP API 能力" tabindex="0">
   <table>

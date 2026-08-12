@@ -101,7 +101,7 @@ This approach is already visible in the tools:
 - The [Lynx DevTool skill](https://lynxjs.org/ai/skills/lynx-devtool) and [Lynx DevTool MCP](https://lynxjs.org/ai/lynx-devtool-mcp) enable agents to observe and control Lynx pages.
 - [DebugRouter](https://github.com/lynx-family/debug-router) establishes the connections and bridges CDP messages to the runtime.
 
-The working [Lynx CDP API Reference](https://lynxjs.org/api/cdp/api-ref) shows the current surface:
+The working [Lynx CDP API Reference](https://lynxjs.org/next/api/cdp/api-ref) shows the current surface:
 
 <div class="capability-table" role="region" aria-label="Current Lynx CDP API surface" tabindex="0">
   <table>
